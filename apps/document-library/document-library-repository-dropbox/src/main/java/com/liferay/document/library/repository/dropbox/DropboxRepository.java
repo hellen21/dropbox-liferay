@@ -69,10 +69,10 @@ public class DropboxRepository extends DropboxRepositoryHandler {
 		if (Validator.isNotNull(login)) {
 			password = PrincipalThreadLocal.getPassword();
 		}
-		else {
-			login = _DL_REPOSITORY_GUEST_USERNAME;
-			password = _DL_REPOSITORY_GUEST_PASSWORD;
-		}
+//		else {
+//			login = _DL_REPOSITORY_GUEST_USERNAME;
+//			password = _DL_REPOSITORY_GUEST_PASSWORD;
+//		}
 
 //		parameters.put(SessionParameter.PASSWORD, password);
 //		parameters.put(SessionParameter.USER, login);
@@ -110,12 +110,12 @@ public class DropboxRepository extends DropboxRepositoryHandler {
 //			typeSettingsProperties, typeSettingsKey);
 	}
 
-	private static final String _DL_REPOSITORY_GUEST_PASSWORD =
-		GetterUtil.getString(
-			PropsUtil.get(PropsKeys.DL_REPOSITORY_GUEST_PASSWORD));
-
-	private static final String _DL_REPOSITORY_GUEST_USERNAME =
-		GetterUtil.getString(
-			PropsUtil.get(PropsKeys.DL_REPOSITORY_GUEST_USERNAME));
+//	private static final String _DL_REPOSITORY_GUEST_PASSWORD =
+//		GetterUtil.getString(
+//			PropsUtil.get(PropsKeys.DL_REPOSITORY_GUEST_PASSWORD));
+//
+//	private static final String _DL_REPOSITORY_GUEST_USERNAME =
+//		GetterUtil.getString(
+//			PropsUtil.get(PropsKeys.DL_REPOSITORY_GUEST_USERNAME));
 
 }

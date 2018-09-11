@@ -44,31 +44,31 @@ public abstract class BaseDropboxRepositoryFactory<T extends DropboxRepositoryHa
 	@Override
 	public LocalRepository createLocalRepository(long repositoryId)
 		throws PortalException {
-			return null;
+		//return null;
 
-//		try (ContextClassLoaderSetter contextClassLoaderSetter =
-//				new ContextClassLoaderSetter(
-//					BaseDropboxRepositoryFactory.class.getClassLoader())) {
-//
-//			BaseRepository baseRepository = createBaseRepository(repositoryId);
-//
-//			return baseRepository.getLocalRepository();
-//		}
+		try (ContextClassLoaderSetter contextClassLoaderSetter =
+				new ContextClassLoaderSetter(
+					BaseDropboxRepositoryFactory.class.getClassLoader())) {
+
+			BaseRepository baseRepository = createBaseRepository(repositoryId);
+
+			return baseRepository.getLocalRepository();
+		}
 	}
 
 	@Override
 	public Repository createRepository(long repositoryId)
 		throws PortalException {
-			return null;
+		//	return null;
+//poner get de dropbox
+		try (ContextClassLoaderSetter contextClassLoaderSetter =
+				new ContextClassLoaderSetter(
+					BaseDropboxRepositoryFactory.class.getClassLoader())) {
 
-//		try (ContextClassLoaderSetter contextClassLoaderSetter =
-//				new ContextClassLoaderSetter(
-//					BaseDropboxRepositoryFactory.class.getClassLoader())) {
-//
-//			return new RepositoryProxyBean(
-//				createBaseRepository(repositoryId),
-//				BaseDropboxRepositoryFactory.class.getClassLoader());
-//		}
+			return new RepositoryProxyBean(
+				createBaseRepository(repositoryId),
+				BaseDropboxRepositoryFactory.class.getClassLoader());
+		}
 	}
 
 	protected abstract T createBaseRepository();
@@ -91,6 +91,8 @@ public abstract class BaseDropboxRepositoryFactory<T extends DropboxRepositoryHa
 
 		setupRepository(repositoryId, repository, baseRepository);
 
+		
+		//revisar init
 		if (!ExportImportThreadLocal.isImportInProcess()) {
 			baseRepository.initRepository();
 		}

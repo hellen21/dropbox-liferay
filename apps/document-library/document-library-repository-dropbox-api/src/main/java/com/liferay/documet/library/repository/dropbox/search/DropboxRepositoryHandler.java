@@ -401,7 +401,7 @@ public abstract class DropboxRepositoryHandler
 
 	@Override
 	public void initRepository() throws PortalException {
-		_baseCmisRepository.initRepository();
+		//_baseCmisRepository.initRepository();
 	}
 
 	public boolean isCancelCheckOutAllowable(String objectId)
