@@ -2,5 +2,5 @@ Bundle-Name: document-library-repository-dropbox
 Bundle-SymbolicName: com.liferay.document.library.repository.dropbox
 Bundle-Version: 1.0.0
 Export-Package: \
-	com.liferay.documet.library.repository.dropbox.search,\
+	com.liferay.document.library.repository.dropbox.search,\
 	com.liferay.document.library.repository.dropbox.configuration
