@@ -14,7 +14,7 @@
 
 package com.liferay.document.library.repository.dropbox;
 
-import com.liferay.documet.library.repository.dropbox.search.DropboxRepositoryHandler;
+import com.liferay.document.library.repository.dropbox.search.DropboxRepositoryHandler;
 import com.liferay.document.library.repository.dropbox.search.Session;
 //import com.liferay.document.library.repository.cmis.CMISRepositoryHandler;
 //import com.liferay.document.library.repository.cmis.Session;

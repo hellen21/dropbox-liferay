@@ -22,7 +22,7 @@ import com.liferay.document.library.repository.dropbox.configuration.DropboxRepo
 //import com.liferay.document.library.repository.cmis.configuration.CMISRepositoryConfiguration;
 //import com.liferay.document.library.repository.cmis.search.BaseCmisSearchQueryBuilder;
 //import com.liferay.document.library.repository.cmis.search.CMISSearchQueryBuilder;
-import com.liferay.documet.library.repository.dropbox.search.DropboxRepositoryHandler;
+import com.liferay.document.library.repository.dropbox.search.DropboxRepositoryHandler;
 import com.liferay.exportimport.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.lock.LockManager;
