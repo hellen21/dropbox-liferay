@@ -12,7 +12,7 @@
  *
  */
 
-package com.liferay.documet.library.repository.dropbox.search;
+package com.liferay.document.library.repository.dropbox.search;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.repository.BaseRepositoryImpl;

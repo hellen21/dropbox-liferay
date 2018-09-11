@@ -12,7 +12,7 @@
  *
  */
 
-package com.liferay.documet.library.repository.dropbox.search;
+package com.liferay.document.library.repository.dropbox.search;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.lock.Lock;
@@ -56,7 +56,7 @@ public abstract class DropboxRepositoryHandler
 			long size, ServiceContext serviceContext)
 		throws PortalException {
 
-		return _baseCmisRepository.addFileEntry(
+		return _baseDropboxRepository.addFileEntry(
 			userId, folderId, sourceFileName, mimeType, title, description,
 			changeLog, is, size, serviceContext);
 	}
@@ -67,7 +67,7 @@ public abstract class DropboxRepositoryHandler
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		return _baseCmisRepository.addFileShortcut(
+		return _baseDropboxRepository.addFileShortcut(
 			userId, folderId, toFileEntryId, serviceContext);
 	}
 
@@ -77,13 +77,13 @@ public abstract class DropboxRepositoryHandler
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		return _baseCmisRepository.addFolder(
+		return _baseDropboxRepository.addFolder(
 			userId, parentFolderId, name, description, serviceContext);
 	}
 
 	@Override
 	public FileVersion cancelCheckOut(long fileEntryId) throws PortalException {
-		return _baseCmisRepository.cancelCheckOut(fileEntryId);
+		return _baseDropboxRepository.cancelCheckOut(fileEntryId);
 	}
 
 	@Override
@@ -92,7 +92,7 @@ public abstract class DropboxRepositoryHandler
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		_baseCmisRepository.checkInFileEntry(
+		_baseDropboxRepository.checkInFileEntry(
 			userId, fileEntryId, major, changeLog, serviceContext);
 	}
 
@@ -102,7 +102,7 @@ public abstract class DropboxRepositoryHandler
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		_baseCmisRepository.checkInFileEntry(
+		_baseDropboxRepository.checkInFileEntry(
 			userId, fileEntryId, lockUuid, serviceContext);
 	}
 
@@ -111,7 +111,7 @@ public abstract class DropboxRepositoryHandler
 			long fileEntryId, ServiceContext serviceContext)
 		throws PortalException {
 
-		return _baseCmisRepository.checkOutFileEntry(
+		return _baseDropboxRepository.checkOutFileEntry(
 			fileEntryId, serviceContext);
 	}
 
@@ -121,7 +121,7 @@ public abstract class DropboxRepositoryHandler
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		return _baseCmisRepository.checkOutFileEntry(
+		return _baseDropboxRepository.checkOutFileEntry(
 			fileEntryId, owner, expirationTime, serviceContext);
 	}
 
@@ -131,32 +131,32 @@ public abstract class DropboxRepositoryHandler
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		return _baseCmisRepository.copyFileEntry(
+		return _baseDropboxRepository.copyFileEntry(
 			userId, groupId, fileEntryId, destFolderId, serviceContext);
 	}
 
 	@Override
 	public void deleteFileEntry(long fileEntryId) throws PortalException {
-		_baseCmisRepository.deleteFileEntry(fileEntryId);
+		_baseDropboxRepository.deleteFileEntry(fileEntryId);
 	}
 
 	@Override
 	public void deleteFileShortcut(long fileShortcutId) throws PortalException {
-		_baseCmisRepository.deleteFileShortcut(fileShortcutId);
+		_baseDropboxRepository.deleteFileShortcut(fileShortcutId);
 	}
 
 	@Override
 	public void deleteFileShortcuts(long toFileEntryId) throws PortalException {
-		_baseCmisRepository.deleteFileShortcuts(toFileEntryId);
+		_baseDropboxRepository.deleteFileShortcuts(toFileEntryId);
 	}
 
 	@Override
 	public void deleteFolder(long folderId) throws PortalException {
-		_baseCmisRepository.deleteFolder(folderId);
+		_baseDropboxRepository.deleteFolder(folderId);
 	}
 
-	public BaseRepository getCmisRepository() {
-		return _baseCmisRepository;
+	public BaseRepository getDropboxRepository() {
+		return _baseDropboxRepository;
 	}
 
 	@Override
@@ -165,7 +165,7 @@ public abstract class DropboxRepositoryHandler
 			OrderByComparator<FileEntry> obc)
 		throws PortalException {
 
-		return _baseCmisRepository.getFileEntries(
+		return _baseDropboxRepository.getFileEntries(
 			folderId, status, start, end, obc);
 	}
 
@@ -174,7 +174,7 @@ public abstract class DropboxRepositoryHandler
 			long folderId, int start, int end, OrderByComparator<FileEntry> obc)
 		throws PortalException {
 
-		return _baseCmisRepository.getFileEntries(folderId, start, end, obc);
+		return _baseDropboxRepository.getFileEntries(folderId, start, end, obc);
 	}
 
 	@Override
@@ -183,7 +183,7 @@ public abstract class DropboxRepositoryHandler
 			OrderByComparator<FileEntry> obc)
 		throws PortalException {
 
-		return _baseCmisRepository.getFileEntries(
+		return _baseDropboxRepository.getFileEntries(
 			folderId, fileEntryTypeId, start, end, obc);
 	}
 
@@ -193,27 +193,27 @@ public abstract class DropboxRepositoryHandler
 			OrderByComparator<FileEntry> obc)
 		throws PortalException {
 
-		return _baseCmisRepository.getFileEntries(
+		return _baseDropboxRepository.getFileEntries(
 			folderId, mimeTypes, start, end, obc);
 	}
 
 	@Override
 	public int getFileEntriesCount(long folderId) throws PortalException {
-		return _baseCmisRepository.getFileEntriesCount(folderId);
+		return _baseDropboxRepository.getFileEntriesCount(folderId);
 	}
 
 	@Override
 	public int getFileEntriesCount(long folderId, int status)
 		throws PortalException {
 
-		return _baseCmisRepository.getFileEntriesCount(folderId, status);
+		return _baseDropboxRepository.getFileEntriesCount(folderId, status);
 	}
 
 	@Override
 	public int getFileEntriesCount(long folderId, long fileEntryTypeId)
 		throws PortalException {
 
-		return _baseCmisRepository.getFileEntriesCount(
+		return _baseDropboxRepository.getFileEntriesCount(
 			folderId, fileEntryTypeId);
 	}
 
@@ -221,50 +221,50 @@ public abstract class DropboxRepositoryHandler
 	public int getFileEntriesCount(long folderId, String[] mimeTypes)
 		throws PortalException {
 
-		return _baseCmisRepository.getFileEntriesCount(folderId, mimeTypes);
+		return _baseDropboxRepository.getFileEntriesCount(folderId, mimeTypes);
 	}
 
 	@Override
 	public FileEntry getFileEntry(long fileEntryId) throws PortalException {
-		return _baseCmisRepository.getFileEntry(fileEntryId);
+		return _baseDropboxRepository.getFileEntry(fileEntryId);
 	}
 
 	@Override
 	public FileEntry getFileEntry(long folderId, String title)
 		throws PortalException {
 
-		return _baseCmisRepository.getFileEntry(folderId, title);
+		return _baseDropboxRepository.getFileEntry(folderId, title);
 	}
 
 	@Override
 	public FileEntry getFileEntryByUuid(String uuid) throws PortalException {
-		return _baseCmisRepository.getFileEntryByUuid(uuid);
+		return _baseDropboxRepository.getFileEntryByUuid(uuid);
 	}
 
 	@Override
 	public FileShortcut getFileShortcut(long fileShortcutId)
 		throws PortalException {
 
-		return _baseCmisRepository.getFileShortcut(fileShortcutId);
+		return _baseDropboxRepository.getFileShortcut(fileShortcutId);
 	}
 
 	@Override
 	public FileVersion getFileVersion(long fileVersionId)
 		throws PortalException {
 
-		return _baseCmisRepository.getFileVersion(fileVersionId);
+		return _baseDropboxRepository.getFileVersion(fileVersionId);
 	}
 
 	@Override
 	public Folder getFolder(long folderId) throws PortalException {
-		return _baseCmisRepository.getFolder(folderId);
+		return _baseDropboxRepository.getFolder(folderId);
 	}
 
 	@Override
 	public Folder getFolder(long parentFolderId, String name)
 		throws PortalException {
 
-		return _baseCmisRepository.getFolder(parentFolderId, name);
+		return _baseDropboxRepository.getFolder(parentFolderId, name);
 	}
 
 	@Override
@@ -273,7 +273,7 @@ public abstract class DropboxRepositoryHandler
 			int end, OrderByComparator<Folder> obc)
 		throws PortalException {
 
-		return _baseCmisRepository.getFolders(
+		return _baseDropboxRepository.getFolders(
 			parentFolderId, includeMountfolders, start, end, obc);
 	}
 
@@ -281,7 +281,7 @@ public abstract class DropboxRepositoryHandler
 	public List<Object> getFoldersAndFileEntries(
 		long folderId, int start, int end, OrderByComparator<?> obc) {
 
-		return _baseCmisRepository.getFoldersAndFileEntries(
+		return _baseDropboxRepository.getFoldersAndFileEntries(
 			folderId, start, end, obc);
 	}
 
@@ -291,20 +291,20 @@ public abstract class DropboxRepositoryHandler
 			OrderByComparator<?> obc)
 		throws PortalException {
 
-		return _baseCmisRepository.getFoldersAndFileEntries(
+		return _baseDropboxRepository.getFoldersAndFileEntries(
 			folderId, mimeTypes, start, end, obc);
 	}
 
 	@Override
 	public int getFoldersAndFileEntriesCount(long folderId) {
-		return _baseCmisRepository.getFoldersAndFileEntriesCount(folderId);
+		return _baseDropboxRepository.getFoldersAndFileEntriesCount(folderId);
 	}
 
 	@Override
 	public int getFoldersAndFileEntriesCount(long folderId, String[] mimeTypes)
 		throws PortalException {
 
-		return _baseCmisRepository.getFoldersAndFileEntriesCount(
+		return _baseDropboxRepository.getFoldersAndFileEntriesCount(
 			folderId, mimeTypes);
 	}
 
@@ -312,7 +312,7 @@ public abstract class DropboxRepositoryHandler
 	public int getFoldersCount(long parentFolderId, boolean includeMountfolders)
 		throws PortalException {
 
-		return _baseCmisRepository.getFoldersCount(
+		return _baseDropboxRepository.getFoldersCount(
 			parentFolderId, includeMountfolders);
 	}
 
@@ -320,12 +320,12 @@ public abstract class DropboxRepositoryHandler
 	public int getFoldersFileEntriesCount(List<Long> folderIds, int status)
 		throws PortalException {
 
-		return _baseCmisRepository.getFoldersFileEntriesCount(
+		return _baseDropboxRepository.getFoldersFileEntriesCount(
 			folderIds, status);
 	}
 
 	public String getLatestVersionId(String objectId) {
-		return _baseCmisRepository.getLatestVersionId(objectId);
+		return _baseDropboxRepository.getLatestVersionId(objectId);
 	}
 
 	public String getLogin() {
@@ -364,7 +364,7 @@ public abstract class DropboxRepositoryHandler
 			OrderByComparator<Folder> obc)
 		throws PortalException {
 
-		return _baseCmisRepository.getMountFolders(
+		return _baseDropboxRepository.getMountFolders(
 			parentFolderId, start, end, obc);
 	}
 
@@ -372,15 +372,15 @@ public abstract class DropboxRepositoryHandler
 	public int getMountFoldersCount(long parentFolderId)
 		throws PortalException {
 
-		return _baseCmisRepository.getMountFoldersCount(parentFolderId);
+		return _baseDropboxRepository.getMountFoldersCount(parentFolderId);
 	}
 
 	public String getObjectName(String objectId) throws PortalException {
-		return _baseCmisRepository.getObjectName(objectId);
+		return _baseDropboxRepository.getObjectName(objectId);
 	}
 
 	public List<String> getObjectPaths(String objectId) throws PortalException {
-		return _baseCmisRepository.getObjectPaths(objectId);
+		return _baseDropboxRepository.getObjectPaths(objectId);
 	}
 
 	public abstract Session getSession() throws PortalException;
@@ -389,33 +389,33 @@ public abstract class DropboxRepositoryHandler
 	public void getSubfolderIds(List<Long> folderIds, long folderId)
 		throws PortalException {
 
-		_baseCmisRepository.getSubfolderIds(folderIds, folderId);
+		_baseDropboxRepository.getSubfolderIds(folderIds, folderId);
 	}
 
 	@Override
 	public List<Long> getSubfolderIds(long folderId, boolean recurse)
 		throws PortalException {
 
-		return _baseCmisRepository.getSubfolderIds(folderId, recurse);
+		return _baseDropboxRepository.getSubfolderIds(folderId, recurse);
 	}
 
 	@Override
 	public void initRepository() throws PortalException {
-		//_baseCmisRepository.initRepository();
+//		_baseDropboxRepository.initRepository();
 	}
 
 	public boolean isCancelCheckOutAllowable(String objectId)
 		throws PortalException {
 
-		return _baseCmisRepository.isCancelCheckOutAllowable(objectId);
+		return _baseDropboxRepository.isCancelCheckOutAllowable(objectId);
 	}
 
 	public boolean isCheckInAllowable(String objectId) throws PortalException {
-		return _baseCmisRepository.isCheckInAllowable(objectId);
+		return _baseDropboxRepository.isCheckInAllowable(objectId);
 	}
 
 	public boolean isCheckOutAllowable(String objectId) throws PortalException {
-		return _baseCmisRepository.isCheckOutAllowable(objectId);
+		return _baseDropboxRepository.isCheckOutAllowable(objectId);
 	}
 
 	public boolean isDocumentRetrievableByVersionSeriesId() {
@@ -442,7 +442,7 @@ public abstract class DropboxRepositoryHandler
 
 	@Override
 	public Lock lockFolder(long folderId) throws PortalException {
-		return _baseCmisRepository.lockFolder(folderId);
+		return _baseDropboxRepository.lockFolder(folderId);
 	}
 
 	@Override
@@ -451,7 +451,7 @@ public abstract class DropboxRepositoryHandler
 			long expirationTime)
 		throws PortalException {
 
-		return _baseCmisRepository.lockFolder(
+		return _baseDropboxRepository.lockFolder(
 			folderId, owner, inheritable, expirationTime);
 	}
 
@@ -461,7 +461,7 @@ public abstract class DropboxRepositoryHandler
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		return _baseCmisRepository.moveFileEntry(
+		return _baseDropboxRepository.moveFileEntry(
 			userId, fileEntryId, newFolderId, serviceContext);
 	}
 
@@ -471,7 +471,7 @@ public abstract class DropboxRepositoryHandler
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		return _baseCmisRepository.moveFolder(
+		return _baseDropboxRepository.moveFolder(
 			userId, folderId, newParentFolderId, serviceContext);
 	}
 
@@ -480,7 +480,7 @@ public abstract class DropboxRepositoryHandler
 			String lockUuid, long companyId, long expirationTime)
 		throws PortalException {
 
-		return _baseCmisRepository.refreshFileEntryLock(
+		return _baseDropboxRepository.refreshFileEntryLock(
 			lockUuid, companyId, expirationTime);
 	}
 
@@ -489,7 +489,7 @@ public abstract class DropboxRepositoryHandler
 			String lockUuid, long companyId, long expirationTime)
 		throws PortalException {
 
-		return _baseCmisRepository.refreshFolderLock(
+		return _baseDropboxRepository.refreshFolderLock(
 			lockUuid, companyId, expirationTime);
 	}
 
@@ -499,7 +499,7 @@ public abstract class DropboxRepositoryHandler
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		_baseCmisRepository.revertFileEntry(
+		_baseDropboxRepository.revertFileEntry(
 			userId, fileEntryId, version, serviceContext);
 	}
 
@@ -507,7 +507,7 @@ public abstract class DropboxRepositoryHandler
 	public Hits search(long creatorUserId, int status, int start, int end)
 		throws PortalException {
 
-		return _baseCmisRepository.search(creatorUserId, status, start, end);
+		return _baseDropboxRepository.search(creatorUserId, status, start, end);
 	}
 
 	@Override
@@ -516,39 +516,39 @@ public abstract class DropboxRepositoryHandler
 			int start, int end)
 		throws PortalException {
 
-		return _baseCmisRepository.search(
+		return _baseDropboxRepository.search(
 			creatorUserId, folderId, mimeTypes, status, start, end);
 	}
 
 	@Override
 	public Hits search(SearchContext searchContext) throws SearchException {
-		return _baseCmisRepository.search(searchContext);
+		return _baseDropboxRepository.search(searchContext);
 	}
 
 	@Override
 	public Hits search(SearchContext searchContext, Query query)
 		throws SearchException {
 
-		return _baseCmisRepository.search(searchContext, query);
+		return _baseDropboxRepository.search(searchContext, query);
 	}
 
-	public void setCmisRepository(BaseDropboxRepository baseCmisRepository) {
-		_baseCmisRepository = baseCmisRepository;
+	public void setCmisRepository(BaseDropboxRepository baseDropboxRepository) {
+		_baseDropboxRepository = baseDropboxRepository;
 	}
 
 	public FileEntry toFileEntry(String objectId) throws PortalException {
-		return _baseCmisRepository.toFileEntry(objectId);
+		return _baseDropboxRepository.toFileEntry(objectId);
 	}
 
 	public Folder toFolder(String objectId) throws PortalException {
-		return _baseCmisRepository.toFolder(objectId);
+		return _baseDropboxRepository.toFolder(objectId);
 	}
 
 	@Override
 	public void unlockFolder(long folderId, String lockUuid)
 		throws PortalException {
 
-		_baseCmisRepository.unlockFolder(folderId, lockUuid);
+		_baseDropboxRepository.unlockFolder(folderId, lockUuid);
 	}
 
 	@Override
@@ -559,7 +559,7 @@ public abstract class DropboxRepositoryHandler
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		return _baseCmisRepository.updateFileEntry(
+		return _baseDropboxRepository.updateFileEntry(
 			userId, fileEntryId, sourceFileName, mimeType, title, description,
 			changeLog, majorVersion, is, size, serviceContext);
 	}
@@ -570,7 +570,7 @@ public abstract class DropboxRepositoryHandler
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		return _baseCmisRepository.updateFileEntry(
+		return _baseDropboxRepository.updateFileEntry(
 			objectId, mimeType, properties, is, sourceFileName, size,
 			serviceContext);
 	}
@@ -581,7 +581,7 @@ public abstract class DropboxRepositoryHandler
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		return _baseCmisRepository.updateFileShortcut(
+		return _baseDropboxRepository.updateFileShortcut(
 			userId, fileShortcutId, folderId, toFileEntryId, serviceContext);
 	}
 
@@ -590,7 +590,7 @@ public abstract class DropboxRepositoryHandler
 			long oldToFileEntryId, long newToFileEntryId)
 		throws PortalException {
 
-		_baseCmisRepository.updateFileShortcuts(
+		_baseDropboxRepository.updateFileShortcuts(
 			oldToFileEntryId, newToFileEntryId);
 	}
 
@@ -600,7 +600,7 @@ public abstract class DropboxRepositoryHandler
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		return _baseCmisRepository.updateFolder(
+		return _baseDropboxRepository.updateFolder(
 			folderId, name, description, serviceContext);
 	}
 
@@ -608,7 +608,7 @@ public abstract class DropboxRepositoryHandler
 	public boolean verifyFileEntryCheckOut(long fileEntryId, String lockUuid)
 		throws PortalException {
 
-		return _baseCmisRepository.verifyFileEntryCheckOut(
+		return _baseDropboxRepository.verifyFileEntryCheckOut(
 			fileEntryId, lockUuid);
 	}
 
@@ -616,9 +616,9 @@ public abstract class DropboxRepositoryHandler
 	public boolean verifyInheritableLock(long folderId, String lockUuid)
 		throws PortalException {
 
-		return _baseCmisRepository.verifyInheritableLock(folderId, lockUuid);
+		return _baseDropboxRepository.verifyInheritableLock(folderId, lockUuid);
 	}
 
-	private BaseDropboxRepository _baseCmisRepository;
+	private BaseDropboxRepository _baseDropboxRepository;
 
 }

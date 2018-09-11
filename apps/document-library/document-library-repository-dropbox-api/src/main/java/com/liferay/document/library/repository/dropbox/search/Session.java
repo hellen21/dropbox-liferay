@@ -12,7 +12,7 @@
  *
  */
 
-package com.liferay.documet.library.repository.dropbox.search;
+package com.liferay.document.library.repository.dropbox.search;
 
 import java.util.Set;
 

@@ -14,24 +14,18 @@
 
 package com.liferay.document.library.repository.dropbox;
 
-import com.liferay.document.library.repository.dropbox.constant.DropboxRepositoryConstants;
 import com.liferay.documet.library.repository.dropbox.search.DropboxRepositoryHandler;
-import com.liferay.documet.library.repository.dropbox.search.Session;
+import com.liferay.document.library.repository.dropbox.search.Session;
 //import com.liferay.document.library.repository.cmis.CMISRepositoryHandler;
 //import com.liferay.document.library.repository.cmis.Session;
 //import com.liferay.document.library.repository.cmis.internal.constants.CMISRepositoryConstants;
 import com.liferay.portal.kernel.exception.InvalidRepositoryException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.security.auth.PrincipalThreadLocal;
-import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.LocaleUtil;
-import com.liferay.portal.kernel.util.PropsKeys;
-import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 //import org.apache.chemistry.opencmis.commons.SessionParameter;

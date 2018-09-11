@@ -23,9 +23,9 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
  */
 @ExtendedObjectClassDefinition(category = "file-storage")
 @Meta.OCD(
-	id = "com.liferay.document.library.repository.cmis.configuration.CMISRepositoryConfiguration",
+	id = "com.liferay.document.library.repository.dropbox.configuration.DropboxRepositoryConfiguration",
 	localization = "content/Language",
-	name = "cmis-repository-configuration-name"
+	name = "dropbox-repository-configuration-name"
 )
 public interface DropboxRepositoryConfiguration {
 
