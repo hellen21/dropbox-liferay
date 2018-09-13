@@ -59,16 +59,16 @@ public abstract class BaseDropboxRepositoryFactory<T extends DropboxRepositoryHa
 	@Override
 	public Repository createRepository(long repositoryId)
 		throws PortalException {
-		//	return null;
+			return null;
 //poner get de dropbox
-		try (ContextClassLoaderSetter contextClassLoaderSetter =
-				new ContextClassLoaderSetter(
-					BaseDropboxRepositoryFactory.class.getClassLoader())) {
-
-			return new RepositoryProxyBean(
-				createBaseRepository(repositoryId),
-				BaseDropboxRepositoryFactory.class.getClassLoader());
-		}
+//		try (ContextClassLoaderSetter contextClassLoaderSetter =
+//				new ContextClassLoaderSetter(
+//					BaseDropboxRepositoryFactory.class.getClassLoader())) {
+//
+//			return new RepositoryProxyBean(
+//				createBaseRepository(repositoryId),
+//				BaseDropboxRepositoryFactory.class.getClassLoader());
+//		}
 	}
 
 	protected abstract T createBaseRepository();
